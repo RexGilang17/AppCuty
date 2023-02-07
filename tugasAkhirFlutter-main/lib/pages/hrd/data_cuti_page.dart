@@ -12,6 +12,7 @@ class DataCuti extends StatefulWidget {
 }
 
 class _DataCutiState extends State<DataCuti> {
+  int currentStep = 0;
   @override
   Widget build(BuildContext context) {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
@@ -42,7 +43,7 @@ class _DataCutiState extends State<DataCuti> {
                         border: Border.all(color: Colors.deepPurple, width: 4),
                         borderRadius: BorderRadius.circular(15)),
                     width: MediaQuery.of(context).size.width / 1.2,
-                    height: MediaQuery.of(context).size.height / 3.5,
+                    height: MediaQuery.of(context).size.height / 2,
                     padding: EdgeInsets.all(8),
                     // leading: CircleAvatar(child: Text(document['name'][0])),
                     // title: Text('Name: ' + document['name']),
@@ -141,6 +142,28 @@ class _DataCutiState extends State<DataCuti> {
                         SizedBox(
                           height: 10,
                         ),
+                        // Stepper(
+                        //   steps: getSteps(),
+                        //   type: StepperType.horizontal,
+                        //   currentStep: currentStep,
+                        //   onStepContinue: () {
+                        //     final isLastStep = currentStep == getSteps().length - 1;
+
+                        //     if (isLastStep) {
+                        //       print('Proses');
+                        //     } else {
+
+                        //     }
+                        //       setState(() => currentStep += 1
+                        //       );
+                        //   },
+                        //   onStepCancel:
+                        //    currentStep
+                        //   () => setState(() => currentStep -= 1 ),
+                        // ),
+                        SizedBox(
+                          height: 10,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -197,6 +220,23 @@ class _DataCutiState extends State<DataCuti> {
   }
 }
 
+// List<Step> getSteps() => [
+//       Step(
+//         isActive: currentStep >= 0,
+//         title: Text('Proses'),
+//         content: Column(children:  <Widget>[],),
+//       ),
+//        Step(
+//         isActive: currentStep >= 1,
+//         title: Text('Proses'),
+//         content: Column(children:  <Widget>[],),
+//       ),
+//        Step(
+//         isActive: currentStep >= 2,
+//         title: Text('Proses'),
+//         content: Column(children:  <Widget>[],),
+//       ),
+//     ];
 
 // class InfoCuti extends StatefulWidget {
 //   const InfoCuti({super.key});

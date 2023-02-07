@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             "Welcome To Poltek GT",
                             style: TextStyle(
-                                color: Colors.black87,
+                                color: Colors.white,
                                 fontWeight: FontWeight.bold),
                           ),
                           Text(
