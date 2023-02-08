@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:tugas_akhir_flutter/widgets/date_range.dart';
 
 class InfoCuti extends StatefulWidget {
   const InfoCuti({super.key});
@@ -34,6 +35,15 @@ class _InfoCutiState extends State<InfoCuti> {
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               DocumentSnapshot data = snapshot.data!;
+
+              String date = data['tanggalakhir'];
+
+              String dateNow = DateTime.now().toString();
+              print(date.split(" ")[0]);
+              print(dateNow.split(" ")[0]);
+              if (date.split(" ")[0] == dateNow.split(" ")[0]) {
+                users.doc(user.uid).update({"status": "Pending"});
+              }
               return Padding(
                 padding: const EdgeInsets.all(10),
                 child: Container(
@@ -45,7 +55,7 @@ class _InfoCutiState extends State<InfoCuti> {
                       border: Border.all(color: Colors.deepPurple, width: 4),
                       borderRadius: BorderRadius.circular(15)),
                   width: MediaQuery.of(context).size.width / 1.2,
-                  height: MediaQuery.of(context).size.height / 5,
+                  height: MediaQuery.of(context).size.height / 3.5,
                   padding: EdgeInsets.all(8),
                   // leading: CircleAvatar(child: Text(document['name'][0])),
                   // title: Text('Name: ' + document['name']),
@@ -137,6 +147,24 @@ class _InfoCutiState extends State<InfoCuti> {
                                   TextStyle(color: Colors.white, fontSize: 16)),
                           SizedBox(width: 10),
                           Text(data['keterangan'],
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 16))
+                        ],
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Row(
+                        children: [
+                          Text('Status',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 16)),
+                          SizedBox(width: 47),
+                          Text(':',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 16)),
+                          SizedBox(width: 10),
+                          Text(data['status'],
                               style:
                                   TextStyle(color: Colors.white, fontSize: 16))
                         ],

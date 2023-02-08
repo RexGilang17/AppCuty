@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tugas_akhir_flutter/pages/karyawan/calender.dart';
 import 'package:tugas_akhir_flutter/pages/karyawan/home_page.dart';
-import 'package:tugas_akhir_flutter/pages/karyawan/calendar_page.dart';
+// import 'package:tugas_akhir_flutter/pages/karyawan/calendar_page.dart';
 import 'package:tugas_akhir_flutter/pages/karyawan/info_cuti.dart';
 // import 'package:tugas_akhir_flutter/pages/karyawan/profil_page.dart';
 
@@ -36,7 +37,7 @@ class _KaryawanPageState extends State<KaryawanPage> {
         children: [
           HomePage(),
           InfoCuti(),
-          CalendarPage(),
+          Calender(),
           // ProfilPage(),
         ],
       ),

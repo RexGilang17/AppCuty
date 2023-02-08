@@ -222,6 +222,7 @@ class _DateRangeState extends State<DateRange> {
                     "tanggalawal": tanggalawal.toString(),
                     "tanggalakhir": tanggalakhir.toString(),
                     "keterangan": keterangan.text,
+                    "status": "Pending"
                   });
                   Navigator.push(context, MaterialPageRoute(
                     builder: (context) {

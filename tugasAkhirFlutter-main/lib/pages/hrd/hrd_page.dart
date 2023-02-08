@@ -33,7 +33,7 @@ class _HrdPageState extends State<HrdPage> {
         controller: pageController,
         children: [
           HomePage(),
-          DataCuti(),
+          DataCutiPage(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(

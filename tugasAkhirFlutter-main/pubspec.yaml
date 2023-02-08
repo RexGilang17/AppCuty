@@ -48,6 +48,10 @@ dependencies:
   dropdown_formfield: ^0.1.4
   lottie: ^2.2.0
   timelines: ^0.1.0
+  connectivity: ^3.0.3
+  http: ^0.13.5
+
+  syncfusion_flutter_calendar: ^19.1.56
 
 dev_dependencies:
   flutter_test:
