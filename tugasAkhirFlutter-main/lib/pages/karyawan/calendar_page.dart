@@ -25,7 +25,7 @@ class _CalendarPageState extends State<CalendarPage> {
         flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-                colors: [Colors.black87, Colors.deepPurple],
+                colors: [Colors.black87, Colors.blueGrey],
                 begin: FractionalOffset.topLeft,
                 end: FractionalOffset.bottomRight),
           ),

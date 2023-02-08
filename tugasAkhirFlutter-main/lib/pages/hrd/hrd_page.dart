@@ -39,7 +39,7 @@ class _HrdPageState extends State<HrdPage> {
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTap,
         backgroundColor: Colors.grey.shade900,
-        selectedIconTheme: IconThemeData(color: Colors.purpleAccent),
+        selectedIconTheme: IconThemeData(color: Colors.blueGrey),
         unselectedIconTheme: IconThemeData(color: Colors.white),
         unselectedLabelStyle: TextStyle(
           color: Colors.white,
@@ -60,7 +60,7 @@ class _HrdPageState extends State<HrdPage> {
             label: 'Data Cuti',
           ),
         ],
-        selectedItemColor: Colors.purpleAccent,
+        selectedItemColor: Colors.blueAccent,
       ),
     );
   }

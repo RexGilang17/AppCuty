@@ -36,6 +36,7 @@ class _InfoCutiState extends State<InfoCuti> {
             if (snapshot.hasData) {
               DocumentSnapshot data = snapshot.data!;
 
+              String datee = data['tanggalawal'];
               String date = data['tanggalakhir'];
 
               String dateNow = DateTime.now().toString();
@@ -44,6 +45,9 @@ class _InfoCutiState extends State<InfoCuti> {
               if (date.split(" ")[0] == dateNow.split(" ")[0]) {
                 users.doc(user.uid).update({"status": "Pending"});
               }
+              //else () {
+
+              // }
               return Padding(
                 padding: const EdgeInsets.all(10),
                 child: Container(
@@ -52,7 +56,7 @@ class _InfoCutiState extends State<InfoCuti> {
                           colors: [Colors.black, Colors.black54],
                           begin: FractionalOffset.topLeft,
                           end: FractionalOffset.bottomRight),
-                      border: Border.all(color: Colors.deepPurple, width: 4),
+                      border: Border.all(color: Colors.blueAccent, width: 4),
                       borderRadius: BorderRadius.circular(15)),
                   width: MediaQuery.of(context).size.width / 1.2,
                   height: MediaQuery.of(context).size.height / 3.5,
