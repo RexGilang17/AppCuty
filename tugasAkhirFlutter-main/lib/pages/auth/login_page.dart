@@ -7,6 +7,7 @@ import 'package:tugas_akhir_flutter/pages/auth/forgot_password.dart';
 import 'package:tugas_akhir_flutter/pages/auth/register_page.dart';
 import 'package:tugas_akhir_flutter/pages/karyawan/karyawan_page.dart';
 import 'package:tugas_akhir_flutter/pages/hrd/hrd_page.dart';
+import 'package:lottie/lottie.dart';
 // import 'package:lottie/lottie.dart';
 
 class LoginPage extends StatefulWidget {
@@ -51,10 +52,7 @@ class _LoginPageState extends State<LoginPage> {
                         Container(
                           width: 200,
                           height: 150,
-                          child: Image.asset(
-                            'images/login.png',
-                            fit: BoxFit.contain,
-                          ),
+                          child: Lottie.asset('images/lottie.json'),
                         ),
                         SizedBox(height: 50),
                         Text(
@@ -189,7 +187,7 @@ class _LoginPageState extends State<LoginPage> {
                                 borderRadius: BorderRadius.circular(20),
                                 gradient: LinearGradient(
                                     colors: [
-                                      Colors.blueGrey,
+                                      Colors.black,
                                       Colors.grey,
                                     ],
                                     begin: Alignment.topLeft,
