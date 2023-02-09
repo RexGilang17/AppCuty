@@ -35,7 +35,7 @@ class _KaryawanPageState extends State<KaryawanPage> {
         children: [
           HomePage(),
           InfoCuti(),
-          CalendarPage(),
+          Calendar(),
           // ProfilPage(),
         ],
       ),

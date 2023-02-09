@@ -91,7 +91,7 @@ class _DateRangeState extends State<DateRange> {
               height: 16,
             ),
             Text(
-              'Tanggal Cuti Yang Dipilih: ${difference.inDays} hari',
+              'Tanggal Cuti Yang Dipilih: ${difference.inDays + 1} hari',
               style: TextStyle(fontSize: 20),
             ),
             const SizedBox(
