@@ -8,7 +8,6 @@ import 'package:tugas_akhir_flutter/pages/auth/register_page.dart';
 import 'package:tugas_akhir_flutter/pages/karyawan/karyawan_page.dart';
 import 'package:tugas_akhir_flutter/pages/hrd/hrd_page.dart';
 import 'package:lottie/lottie.dart';
-import 'package:lottie/lottie.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -54,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
                           height: 150,
                           child: Lottie.asset('images/lottie.json'),
                         ),
-                        SizedBox(height: 50),
+                        SizedBox(height: 5),
                         Text(
                           'Welcome back you\'ve been missed!',
                           style: TextStyle(

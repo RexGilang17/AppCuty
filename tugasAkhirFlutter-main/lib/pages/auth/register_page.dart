@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:tugas_akhir_flutter/pages/auth/login_page.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -60,13 +61,14 @@ class _RegisterPageState extends State<RegisterPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         SizedBox(
-                          height: 50,
+                          height: 20,
                         ),
-                        Icon(
-                          Icons.lock,
-                          size: 50,
+                        Container(
+                          width: 200,
+                          height: 150,
+                          child: Lottie.asset('images/lotti1.json'),
                         ),
-                        SizedBox(height: 25),
+                        SizedBox(height: 5),
                         Text(
                           'Let\'s create an account for you!',
                           style: TextStyle(
@@ -75,7 +77,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           ),
                         ),
                         SizedBox(
-                          height: 25,
+                          height: 15,
                         ),
                         TextFormField(
                           controller: nameController,
@@ -229,7 +231,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           onChanged: (value) {},
                         ),
                         SizedBox(
-                          height: 30,
+                          height: 15,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -275,7 +277,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           ],
                         ),
                         SizedBox(
-                          height: 30,
+                          height: 15,
                         ),
                         Material(
                           borderRadius: BorderRadius.circular(20),
@@ -321,7 +323,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 50),
+                        SizedBox(height: 20),
                         Row(
                           children: [
                             Expanded(
@@ -347,7 +349,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           ],
                         ),
                         SizedBox(
-                          height: 50,
+                          height: 20,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -377,7 +379,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 50),
+                        SizedBox(height: 20),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -440,6 +442,7 @@ class _RegisterPageState extends State<RegisterPage> {
       'tanggalakhir': DateTime.now(),
       'keterangan': (""),
       'status': role == "HRD" ? "" : ("Pending"),
+      'maxCuti': 12
     });
     Navigator.pushReplacement(
         context, MaterialPageRoute(builder: (context) => LoginPage()));

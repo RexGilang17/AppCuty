@@ -35,14 +35,14 @@ class _KaryawanPageState extends State<KaryawanPage> {
         children: [
           HomePage(),
           InfoCuti(),
-          Calendar(),
+          CalenderMenu(),
           // ProfilPage(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTap,
-        backgroundColor: Colors.grey,
-        selectedIconTheme: IconThemeData(color: Colors.blueGrey),
+        backgroundColor: Colors.grey.shade900,
+        selectedIconTheme: IconThemeData(color: Colors.blue),
         unselectedIconTheme: IconThemeData(color: Colors.white),
         unselectedLabelStyle: TextStyle(
           color: Colors.white,
@@ -71,7 +71,7 @@ class _KaryawanPageState extends State<KaryawanPage> {
           //   label: 'Profil',
           // ),
         ],
-        selectedItemColor: Colors.blueGrey,
+        selectedItemColor: Colors.blue,
       ),
     );
   }

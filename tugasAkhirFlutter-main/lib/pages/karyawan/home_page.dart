@@ -1,9 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:tugas_akhir_flutter/pages/auth/login_page.dart';
-import 'package:tugas_akhir_flutter/widgets/consulatation.dart';
 import 'package:tugas_akhir_flutter/widgets/date_range.dart';
-import 'package:tugas_akhir_flutter/widgets/title_bar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -13,17 +13,18 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final users = FirebaseAuth.instance.currentUser!;
   @override
   Widget build(BuildContext context) {
+    final users = FirebaseAuth.instance.currentUser!;
     return Scaffold(
+      backgroundColor: Colors.blueGrey[500],
       appBar: AppBar(
         title: const Text('Home'),
         automaticallyImplyLeading: false,
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-                colors: [Colors.blueGrey, Colors.grey],
+                colors: [Colors.black45, Colors.blueGrey],
                 begin: FractionalOffset.topLeft,
                 end: FractionalOffset.bottomRight),
           ),
@@ -39,123 +40,179 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Column(
-              children: [
-                Text(
-                  'Selamat Datang',
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  'Karyawan',
-                  style: TextStyle(
-                      color: Colors.blueGrey,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18),
-                ),
-                SizedBox(
-                  height: 25,
-                ),
-                ClipOval(
-                  child: Container(
-                      color: Colors.grey,
-                      width: 100,
-                      height: 100,
-                      child: Icon(
-                        Icons.person,
-                        size: 80,
-                      )),
-                ),
-                SizedBox(
-                  height: 25,
-                ),
-              ],
-            ),
-            Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 20, right: 20),
-                  child: Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.blueGrey, width: 3),
-                        borderRadius: BorderRadius.circular(10)),
-                    width: MediaQuery.of(context).size.width * 0.7,
-                    height: 40,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+      body: StreamBuilder<DocumentSnapshot>(
+          stream: FirebaseFirestore.instance
+              .collection('users')
+              .doc(users.uid)
+              .snapshots(),
+          builder: (context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+            if (snapshot.hasData) {
+              DocumentSnapshot data = snapshot.data!;
+              return Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Column(
                       children: [
-                        Icon(
-                          Icons.notifications,
-                          color: Colors.blueGrey,
-                        ),
-                        SizedBox(width: 15),
                         Text(
-                          'JUMLAH CUTI ANDA SAAT INI : ',
+                          'Hii..',
                           style: TextStyle(
-                              color: Colors.blueGrey,
+                              fontSize: 25,
                               fontWeight: FontWeight.bold,
-                              fontSize: 15),
+                              color: Colors.white),
+                        ),
+                        SizedBox(
+                          height: 8,
                         ),
                         Text(
-                          '12',
+                          data['name'],
                           style: TextStyle(
-                              color: Colors.blueGrey,
+                              color: Colors.blueGrey[200],
                               fontWeight: FontWeight.bold,
-                              fontSize: 15),
+                              fontSize: 18),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        ClipOval(
+                          child: Container(
+                            color: Colors.blueGrey[400],
+                            width: 150,
+                            height: 150,
+                            child: Lottie.asset('images/lottie4.json'),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          'POLITEKNIK GAJAH TUNGGAL',
+                          style: TextStyle(
+                              // color: Colors.deepPurple,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              fontSize: 20),
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          data['email'],
+                          style: TextStyle(
+                            color: Colors.blueGrey[200],
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ],
                     ),
-                  ),
-                ),
-                SizedBox(height: 10),
-                Material(
-                  borderRadius: BorderRadius.circular(20),
-                  elevation: 2,
-                  child: Container(
-                    width: MediaQuery.of(context).size.width * 0.6,
-                    height: 40,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        gradient: LinearGradient(
-                            colors: [
-                              Colors.blueGrey,
-                              Colors.grey,
-                            ],
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight)),
-                    child: Material(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.transparent,
-                      child: InkWell(
-                        splashColor: Colors.indigoAccent,
-                        borderRadius: BorderRadius.circular(20),
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => DateRange()));
-                        },
-                        child: Center(
-                          child: Text(
-                            'AJUKAN CUTI ',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 18),
+                    Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 20, right: 20),
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: Colors.blueGrey[600],
+                                border:
+                                    Border.all(color: Colors.white, width: 3),
+                                borderRadius: BorderRadius.circular(10)),
+                            width: MediaQuery.of(context).size.width * 0.5,
+                            height: 40,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.notifications,
+                                  color: Colors.white,
+                                ),
+                                SizedBox(width: 10),
+                                Text(
+                                  'Total Jumlah Cuti : ',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15),
+                                ),
+                                Text(
+                                  '${data['maxCuti'].toString()} days',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
+                        SizedBox(height: 10),
+                        Material(
+                          borderRadius: BorderRadius.circular(20),
+                          elevation: 2,
+                          child: Container(
+                            width: MediaQuery.of(context).size.width * 0.6,
+                            height: 40,
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                  color: Color.fromARGB(255, 255, 255, 255),
+                                  width: 1),
+                              borderRadius: BorderRadius.circular(20),
+                              color: Colors.blue[400],
+                              // gradient: LinearGradient(
+                              //     colors: [
+                              //       Colors.black87,
+                              //       Colors.blueGrey,
+                              //     ],
+                              //     begin: Alignment.topLeft,
+                              //     end: Alignment.bottomRight),
+                            ),
+                            child: Material(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Colors.transparent,
+                              child: InkWell(
+                                splashColor: Colors.indigoAccent,
+                                borderRadius: BorderRadius.circular(10),
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => DateRange(),
+                                      ));
+                                },
+                                child: Center(
+                                  child: Text(
+                                    'Apply for Leave',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 18),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 200,
+                          height: 150,
+                          child: Lottie.asset('images/lottie.json'),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-              ],
-            )
-          ],
-        ),
-      ),
+              );
+            }
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }),
     );
   }
 

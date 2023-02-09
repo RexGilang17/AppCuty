@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tugas_akhir_flutter/pages/hrd/calender.dart';
 import 'package:tugas_akhir_flutter/pages/hrd/data_cuti_page.dart';
 import 'package:tugas_akhir_flutter/pages/hrd/home_page.dart';
 
@@ -31,15 +32,12 @@ class _HrdPageState extends State<HrdPage> {
           });
         },
         controller: pageController,
-        children: [
-          HomePage(),
-          DataCutiPage(),
-        ],
+        children: [HomePage(), DataCutiPage(), CalenderMenu()],
       ),
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTap,
         backgroundColor: Colors.grey.shade900,
-        selectedIconTheme: IconThemeData(color: Colors.blueGrey),
+        selectedIconTheme: IconThemeData(color: Colors.blue),
         unselectedIconTheme: IconThemeData(color: Colors.white),
         unselectedLabelStyle: TextStyle(
           color: Colors.white,
@@ -58,6 +56,10 @@ class _HrdPageState extends State<HrdPage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.book),
             label: 'Data Cuti',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.calendar_today_rounded),
+            label: 'Calender',
           ),
         ],
         selectedItemColor: Colors.blueAccent,

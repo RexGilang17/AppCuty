@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:tugas_akhir_flutter/pages/auth/login_page.dart';
 
 class ForgotPassword extends StatefulWidget {
@@ -37,7 +38,12 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         SizedBox(
                           height: 50,
                         ),
-                        SizedBox(height: 50),
+                        Container(
+                          width: 200,
+                          height: 150,
+                          child: Lottie.asset('images/lottie.json'),
+                        ),
+                        SizedBox(height: 10),
                         Text(
                           'Forgot Password',
                           style: TextStyle(

@@ -18,13 +18,14 @@ class _InfoCutiState extends State<InfoCuti> {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
     CollectionReference users = firestore.collection("users");
     return Scaffold(
+      backgroundColor: Colors.blueGrey[500],
       appBar: AppBar(
         title: Text('Info Cuti'),
         automaticallyImplyLeading: false,
         flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-                colors: [Colors.blueGrey, Colors.grey],
+                colors: [Colors.black45, Colors.blueGrey],
                 begin: FractionalOffset.topLeft,
                 end: FractionalOffset.bottomRight),
           ),
@@ -52,14 +53,15 @@ class _InfoCutiState extends State<InfoCuti> {
                 padding: const EdgeInsets.all(10),
                 child: Container(
                   decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          colors: [Colors.black, Colors.black54],
-                          begin: FractionalOffset.topLeft,
-                          end: FractionalOffset.bottomRight),
-                      border: Border.all(color: Colors.blueAccent, width: 4),
+                      color: Colors.blue[700],
+                      // gradient: LinearGradient(
+                      //     colors: [Colors.black, Colors.black45],
+                      //     begin: FractionalOffset.topLeft,
+                      //     end: FractionalOffset.bottomRight),
+                      border: Border.all(color: Colors.white, width: 4),
                       borderRadius: BorderRadius.circular(15)),
-                  width: MediaQuery.of(context).size.width / 1.2,
-                  height: MediaQuery.of(context).size.height / 3.5,
+                  width: MediaQuery.of(context).size.width / 0,
+                  height: MediaQuery.of(context).size.height / 4.0,
                   padding: EdgeInsets.all(8),
                   // leading: CircleAvatar(child: Text(document['name'][0])),
                   // title: Text('Name: ' + document['name']),
@@ -163,14 +165,19 @@ class _InfoCutiState extends State<InfoCuti> {
                           Text('Status',
                               style:
                                   TextStyle(color: Colors.white, fontSize: 16)),
-                          SizedBox(width: 47),
+                          SizedBox(width: 51),
                           Text(':',
                               style:
                                   TextStyle(color: Colors.white, fontSize: 16)),
                           SizedBox(width: 10),
                           Text(data['status'],
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 16))
+                              style: TextStyle(
+                                  color: data['status'] == 'Approved'
+                                      ? Colors.green
+                                      : data['status'] == 'Rejected'
+                                          ? Colors.red
+                                          : Colors.amber,
+                                  fontSize: 16))
                         ],
                       ),
                     ],
@@ -182,6 +189,7 @@ class _InfoCutiState extends State<InfoCuti> {
               return Text('Loading..');
             }
           }),
+
       //     StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
       //   stream: FirebaseFirestore.instance.collection('users').snapshots(),
       //   builder: (_, snapshot) {
