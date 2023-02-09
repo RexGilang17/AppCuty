@@ -24,7 +24,7 @@ class _ListCutiState extends State<ListCuti> {
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-                colors: [Colors.black87, Colors.deepPurple],
+                colors: [Colors.black87, Colors.blueGrey],
                 begin: FractionalOffset.topLeft,
                 end: FractionalOffset.bottomRight),
           ),
@@ -52,7 +52,7 @@ class _ListCutiState extends State<ListCuti> {
                                 begin: FractionalOffset.topLeft,
                                 end: FractionalOffset.bottomRight),
                             border: Border.all(
-                                color: Colors.deepPurpleAccent, width: 4),
+                                color: Colors.blue, width: 4),
                             borderRadius: const BorderRadius.only(
                                 topRight: Radius.circular(50),
                                 bottomLeft: Radius.circular(50))),

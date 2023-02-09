@@ -46,7 +46,7 @@ class _RegisterPageState extends State<RegisterPage> {
               padding: EdgeInsets.only(right: 20, left: 20),
               decoration: BoxDecoration(
                   gradient: LinearGradient(
-                      colors: [Colors.deepPurpleAccent, Colors.deepOrange],
+                      colors: [Colors.blueGrey, Colors.grey],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight)),
               width: MediaQuery.of(context).size.width,
@@ -246,7 +246,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               width: 20,
                             ),
                             DropdownButton<String>(
-                              dropdownColor: Colors.deepPurpleAccent,
+                              dropdownColor: Colors.blueGrey,
                               isDense: true,
                               isExpanded: false,
                               iconEnabledColor: Colors.white,
@@ -288,7 +288,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 gradient: LinearGradient(
                                     colors: [
                                       Colors.black87,
-                                      Colors.deepPurple,
+                                      Colors.grey,
                                     ],
                                     begin: Alignment.topLeft,
                                     end: Alignment.bottomRight)),
@@ -399,7 +399,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               child: const Text(
                                 'Login now',
                                 style: TextStyle(
-                                  color: Colors.deepPurple,
+                                  color: Colors.blueGrey,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
