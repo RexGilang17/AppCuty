@@ -22,6 +22,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.9.0"
+  awesome_dialog:
+    dependency: "direct main"
+    description:
+      name: awesome_dialog
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.2"
   boolean_selector:
     dependency: transitive
     description:
@@ -247,6 +254,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  graphs:
+    dependency: transitive
+    description:
+      name: graphs
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.2.0"
   http:
     dependency: "direct main"
     description:
@@ -331,13 +345,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.6.2"
-  quickalert:
-    dependency: "direct main"
+  rive:
+    dependency: transitive
     description:
-      name: quickalert
+      name: rive
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.1"
+    version: "0.9.1"
   simple_gesture_detector:
     dependency: transitive
     description:

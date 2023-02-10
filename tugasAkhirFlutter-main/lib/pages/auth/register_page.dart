@@ -438,8 +438,8 @@ class _RegisterPageState extends State<RegisterPage> {
       'name': nameController.text,
       'email': emailController.text,
       'role': role,
-      'tanggalawal': DateTime.now(),
-      'tanggalakhir': DateTime.now(),
+      'tanggalawal': "${DateTime.now()}",
+      'tanggalakhir': "${DateTime.now()}",
       'keterangan': (""),
       'status': role == "HRD" ? "" : ("Pending"),
       'maxCuti': 12

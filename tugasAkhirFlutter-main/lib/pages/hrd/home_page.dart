@@ -1,3 +1,4 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +37,20 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             onPressed: () {
-              logout(context);
+              AwesomeDialog(
+                context: context,
+                dialogType: DialogType.warning,
+                headerAnimationLoop: false,
+                animType: AnimType.bottomSlide,
+                title: 'Warning!!',
+                desc: 'Are you sure you want to leave ',
+                buttonsTextStyle: const TextStyle(color: Colors.black),
+                showCloseIcon: true,
+                btnCancelOnPress: () {},
+                btnOkOnPress: () {
+                  logout(context);
+                },
+              ).show();
             },
             icon: Icon(
               Icons.logout,
@@ -59,7 +73,7 @@ class _HomePageState extends State<HomePage> {
                   Column(
                     children: [
                       Text(
-                        'Welcome',
+                        'CUTYAPP',
                         style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
@@ -199,7 +213,7 @@ class _HomePageState extends State<HomePage> {
                       Container(
                         width: 200,
                         height: 150,
-                        child: Lottie.asset('images/lottie.json'),
+                        // child: Lottie.asset('images/lottie.json'),
                       ),
                     ],
                   ),

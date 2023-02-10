@@ -63,7 +63,7 @@ class _KaryawanPageState extends State<KaryawanPage> {
             label: 'Info Cuti',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_month),
+            icon: Icon(Icons.calendar_today_rounded),
             label: 'Calendar',
           ),
           // BottomNavigationBarItem(

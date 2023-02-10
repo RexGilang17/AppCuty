@@ -40,12 +40,8 @@ class _DataCutiPageState extends State<DataCutiPage> {
                       padding: const EdgeInsets.all(15),
                       child: Container(
                         decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                                colors: [Colors.black, Colors.black54],
-                                begin: FractionalOffset.topLeft,
-                                end: FractionalOffset.bottomRight),
-                            border:
-                                Border.all(color: Colors.blueGrey, width: 4),
+                            color: Colors.blue[700],
+                            border: Border.all(color: Colors.white, width: 4),
                             borderRadius: BorderRadius.circular(15)),
                         width: MediaQuery.of(context).size.width,
                         height: MediaQuery.of(context).size.height / 3.5,
@@ -99,7 +95,7 @@ class _DataCutiPageState extends State<DataCutiPage> {
                                     style: TextStyle(
                                         color: Colors.white, fontSize: 16)),
                                 SizedBox(width: 10),
-                                Text(data['tanggalawal'].toString(),
+                                Text(data['tanggalawal'].split(" ")[0],
                                     style: TextStyle(
                                         color: Colors.white, fontSize: 16))
                               ],
@@ -117,7 +113,7 @@ class _DataCutiPageState extends State<DataCutiPage> {
                                     style: TextStyle(
                                         color: Colors.white, fontSize: 16)),
                                 SizedBox(width: 10),
-                                Text(data['tanggalakhir'].toString(),
+                                Text(data['tanggalakhir'].split(" ")[0],
                                     style: TextStyle(
                                         color: Colors.white, fontSize: 16))
                               ],
@@ -192,7 +188,7 @@ class _DataCutiPageState extends State<DataCutiPage> {
                 },
               );
             } else {
-              return Text('Loading..');
+              return SizedBox();
             }
           }),
     );
